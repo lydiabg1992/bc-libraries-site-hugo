@@ -4,9 +4,88 @@
 {{ end }}
 
 {{ define "main" }}
-<div id="main-body" class="container new-items-page">
-    <h1>This is working</h1>
+<head>
+    <link rel="stylesheet" type="text/css" href="glider.css">
+</head>
+
+    <script src="ni__glider.js">
+        new Glider(document.querySelector('.glider'), {
+            slidesToShow: 5,
+            slidesToScroll: 5,
+            draggable: true,
+            dots: '.dots',
+            arrows: {
+              prev: '.glider-prev',
+              next: '.glider-next'
+            }
+          });
+</script>
+
+<body>
+<div id="main-body" class="container ni-page">
+    <h1>New Items</h1>
+
+
+<form id = "ni__searchbar" action="/form/submit" method="GET"> 
+        <input type="text" name="text" class="search" placeholder="Search New Items...">
+        <input type="submit" name="submit" class="submit" value="Search">
+      </form>
+
+
+<div class="ni__carousel-row glider-contain">
+    <h3>Books by BC Authors</h3>
+    <div class="ni__carousel-glider glider">
+        <div class="ni__card">Book #1</div>
+        <div class="ni__card">Book #2</div>
+        <div class="ni__card">Book #3</div>
+        <div class="ni__card">Book #4</div>
+        <div class="ni__card">Book #5</div>
+        <div class="ni__card">Book #6</div>
+        <div class="ni__card">Book #7</div>
+        <div class="ni__card">Book #8</div>
+        <div class="ni__card">Book #9</div>
+        <div class="ni__card">Book #10</div>
+        </div>
+    </div>
+
+    <div class="ni__carousel-row glider-contain">
+        <h3>Journals and Articles</h3>
+        <div class="ni__carousel-glider glider">
+            <div class="ni__card">Book #1</div>
+            <div class="ni__card">Book #2</div>
+            <div class="ni__card">Book #3</div>
+            <div class="ni__card">Book #4</div>
+            <div class="ni__card">Book #5</div>
+            <div class="ni__card">Book #6</div>
+            <div class="ni__card">Book #7</div>
+            <div class="ni__card">Book #8</div>
+            <div class="ni__card">Book #9</div>
+            <div class="ni__card">Book #10</div>
+            </div>
+        </div>
+
+        <div class="ni__carousel-row glider-contain">
+            <h3>All New Items</h3>
+            <div class="ni__carousel-glider glider">
+                <div class="ni__card">Book #1</div>
+                <div class="ni__card">Book #2</div>
+                <div class="ni__card">Book #3</div>
+                <div class="ni__card">Book #4</div>
+                <div class="ni__card">Book #5</div>
+                <div class="ni__card">Book #6</div>
+                <div class="ni__card">Book #7</div>
+                <div class="ni__card">Book #8</div>
+                <div class="ni__card">Book #9</div>
+                <div class="ni__card">Book #10</div>
+                </div>
+            </div>
+
+
+<button aria-label="Previous" class="glider-prev">«</button>
+<button aria-label="Next" class="glider-next">»</button>
+<div role="tablist" class="dots"></div>
 </div>
+</body>
 {{ end }}
 
 {{ define "pagescripts" }}
