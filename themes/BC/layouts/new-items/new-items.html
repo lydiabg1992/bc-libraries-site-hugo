@@ -5,9 +5,10 @@
 
 {{ define "main" }}
 <head>
-    <link rel="stylesheet" type="text/css" href="glider.css">
+    <link rel="stylesheet" type="text/css" href="_new-items.scss">
 </head>
 
+{{ define "pagescripts" }}
     <script src="ni__glider.js">
         new Glider(document.querySelector('.glider'), {
             slidesToShow: 5,
@@ -20,6 +21,7 @@
             }
           });
 </script>
+{{end}}
 
 <body>
 <div id="main-body" class="container ni-page">
@@ -86,7 +88,5 @@
 <div role="tablist" class="dots"></div>
 </div>
 </body>
-{{ end }}
 
-{{ define "pagescripts" }}
 {{ end }}
