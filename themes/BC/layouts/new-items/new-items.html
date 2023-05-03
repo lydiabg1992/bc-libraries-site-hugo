@@ -1,3 +1,5 @@
+
+
 {{ define "title" }}Search{{ end }}
 
 {{ define "pagestyles" }}
@@ -10,82 +12,94 @@
 
 {{ define "main" }}
 
+{{ $dataJSONoneill := getJSON "https://library.bc.edu/new-items/json/oneill_library" }} 
+
+
 <body>
 
     <div id="main-body" class="container ni-page">
         <br>
         <h1>New Items</h1>
     
-    <form id = "ni__searchbar" action="/form/submit" method="GET"> 
-            <input type="text" name="text" class="search" placeholder="Search New Items...">
-            <input type="submit" name="submit" class="submit" value="Search">
-          </form>
+  
 
+    <form id = "ni__searchbar" action="/form/submit" method="GET"> 
+        <input type="text" name="text" class="search" placeholder="Search New Items...">
+        <input type="submit" name="submit" class="submit" value="Search">
+      </form>
+
+    <h4>New Items</h4>
+    <p>New items can be found at O'Neill Library circulation desk.</p>
+
+
+
+<!--First Carousel-->
     <div class="ni__carousel-wrapper">
-        <h3>Books by BC Authors</h3>
+        <h3>New Items at O'Neill</h3>
         </div>
 
 <div class="ni__carousel-wrapper">       
     <button type="button" class="slick-prev" style="display:none" aria-label="previous">
     </button>
             <ul class="ni__carousel-glider active">
-                <li class = "ni__carousel-item">Book #1</li>
-                <li class = "ni__carousel-item">Book #2</li>
-                <li class = "ni__carousel-item">Book #3</li>
-                <li class = "ni__carousel-item">Book #4</li>
-                <li class = "ni__carousel-item">Book #5</li>
-                <li class = "ni__carousel-item">Book #6</li>
-                <li class = "ni__carousel-item">Book #7</li>
-                <li class = "ni__carousel-item">Book #8</li>
-                <li class = "ni__carousel-item">Book #9</li>
-                <li class = "ni__carousel-item">Book #10</li>
+                {{ range $dataJSONoneill.items }}
+            
+                <li class = "ni__carousel-item" style = "width:9em; height:13em;"> 
+                    <img src = "{{ .cover }}" style = "width:9em; height:13em;"/>
+                    <div class = "ni__carousel-item-text">{{ .title | truncate 50 }}</div></li>
+                    
+                    {{ end }}
+
+                    
                 </ul>
      <button type="button" class="slick-next"; style="display:none"; aria-label="next";></button>
  </div>
       
-    
+<!--Second Carousel-->
  <div class="ni__carousel-wrapper">        
-    <h3>Journals and Articles</h3> 
+    <h3>New Items at Bapst</h3> 
     </div>
-    
-    <div class="ni__carousel-wrapper">   
-        <button type="button" class="slick-prev2"; style="display:none"; aria-label="previous";></button> 
-        <ul class="ni__carousel-glider2">
-            <li class = "ni__carousel-item">Book #1</li>
-            <li class = "ni__carousel-item">Book #2</li>
-            <li class = "ni__carousel-item">Book #3</li>
-            <li class = "ni__carousel-item">Book #4</li>
-            <li class = "ni__carousel-item">Book #5</li>
-            <li class = "ni__carousel-item">Book #6</li>
-            <li class = "ni__carousel-item">Book #7</li>
-            <li class = "ni__carousel-item">Book #8</li>
-            <li class = "ni__carousel-item">Book #9</li>
-            <li class = "ni__carousel-item">Book #10</li>
-            </ul>
-            <button type="button" class="slick-next2" style="display:none;" aria-label="next";></button>
-        </div>
 
+<div class="ni__carousel-wrapper">       
+<button type="button" class="slick-prev2" style="display:none" aria-label="previous">
+</button>
 
-  
-     <div class="ni__carousel-wrapper">   
-        <h3>All New Items</h3>     
-       </div>
-        <div class="ni__carousel-wrapper"> 
-            <button type="button" class="slick-prev3" style="display:none" aria-label="previous"></button> 
-            <ul class="ni__carousel-glider3">
-                <li class = "ni__carousel-item">Book #1</li>
-                <li class = "ni__carousel-item">Book #2</li>
-                <li class = "ni__carousel-item">Book #3</li>
-                <li class = "ni__carousel-item">Book #4</li>
-                <li class = "ni__carousel-item">Book #5</li>
-                <li class = "ni__carousel-item">Book #6</li>
-                <li class = "ni__carousel-item">Book #7</li>
-                <li class = "ni__carousel-item">Book #8</li>
-                <li class = "ni__carousel-item">Book #9</li>
-                <li class = "ni__carousel-item">Book #10</li>  
-            </ul>
-            <button type="button" class="slick-next3" style="display:none" aria-label="next";></button>
-        </div>
+<ul class="ni__carousel-glider2 active">
+    {{ range $dataJSONoneill.items }}
+
+    <li class = "ni__carousel-item" style = "width:9em; height:13em;"> 
+        <img src = "{{ .cover }}" style = "width:9em; height:13em;"/>
+        <div class = "ni__carousel-item-text">{{ .title | truncate 50 }}</div></li>
+        
+        {{ end }}
+
+        
+    </ul>
+ <button type="button" class="slick-next3"; style="display:none"; aria-label="next";></button>
+</div>
+
+<!--Third Carousel-->
+<div class="ni__carousel-wrapper">        
+    <h3>All New Items</h3> 
+    </div>
+
+<div class="ni__carousel-wrapper">       
+<button type="button" class="slick-prev3" style="display:none" aria-label="previous">
+</button>
+
+<ul class="ni__carousel-glider3 active">
+    {{ range $dataJSONoneill.items }}
+
+    <li class = "ni__carousel-item" style = "width:9em; height:13em;"> 
+        <img src = "{{ .cover }}" style = "width:9em; height:13em;"/>
+        <div class = "ni__carousel-item-text">{{ .title | truncate 50 }}</div></li>
+        
+        {{ end }}
+
+        
+    </ul>
+ <button type="button" class="slick-next3"; style="display:none"; aria-label="next";></button>
+</div>
 
     
 {{end}}
@@ -108,7 +122,7 @@
         nextArrow: $('.slick-next'),
         variableWidth:true,
         touchMove:true,
-        swipeToSlide:true,
+        swipeToSlide:false,
         speed:300,
 
       });
@@ -125,7 +139,7 @@
         nextArrow: $('.slick-next2'),
         variableWidth:true,
         touchMove:true,
-        swipeToSlide:true,
+        swipeToSlide:false,
         speed:300,
       });
 
@@ -140,7 +154,7 @@
         nextArrow: $('.slick-next3'),
         variableWidth:true,
         touchMove:true,
-        swipeToSlide:true,
+        swipeToSlide:false,
         speed:300,
         swipe:true,
        

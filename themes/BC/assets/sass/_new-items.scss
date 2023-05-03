@@ -4,7 +4,7 @@
 }
 
 #ni__searchbar {
-    display: flex;
+    display: block;
     float: right;
     padding-right: 1em;
 }
@@ -30,7 +30,7 @@ input {
     text-align: left;
     display:flex;
     align-items:center;
-    
+
 }
 
 .ni__carousel-wrapper:after {
@@ -46,7 +46,7 @@ input {
     float: left;
     padding: .25em;
     display: flex;
-    width:60%;
+    width:80%;
    }
 
 .ni__carousel-glider::-webkit-scrollbar {
@@ -55,10 +55,9 @@ input {
 
 li.ni__carousel-item {
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-    padding:.5em;
     width: 110px;;
     height: 10em;
-    margin: .25em;
+    margin: .35em;
     position: relative;
     overflow-y: hidden;
     -webkit-overflow-scrolling: touch;
@@ -72,9 +71,18 @@ li.ni__carousel-item {
   display:flex;
   outline:none;
   width:174px;
+}
+
+.ni__carousel-item-text {
   
 }
 
+.ni__sidebar {
+    float: right;
+    padding: .25em;
+    display: flex;
+    width:30%;
+}
   .slick-track {
     display: flex;
   }
