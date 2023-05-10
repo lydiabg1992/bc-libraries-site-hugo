@@ -13,6 +13,7 @@
 {{ define "main" }}
 
 {{ $dataJSONoneill := getJSON "https://library.bc.edu/new-items/json/oneill_library" }} 
+{{ $dataJSONbapst := getJSON "https://library.bc.edu/new-items/json/bapst" }}
 
 
 <body>
@@ -28,11 +29,6 @@
         <input type="submit" name="submit" class="submit" value="Search">
       </form>
 
-    <h4>New Items</h4>
-    <p>New items can be found at O'Neill Library circulation desk.</p>
-
-
-
 <!--First Carousel-->
     <div class="ni__carousel-wrapper">
         <h3>New Items at O'Neill</h3>
@@ -44,15 +40,25 @@
             <ul class="ni__carousel-glider active">
                 {{ range $dataJSONoneill.items }}
             
-                <li class = "ni__carousel-item" style = "width:9em; height:13em;"> 
-                    <img src = "{{ .cover }}" style = "width:9em; height:13em;"/>
-                    <div class = "ni__carousel-item-text">{{ .title | truncate 50 }}</div></li>
+                <figure><li class = "ni__carousel-item" style = "width:10em; height:18em;"> 
+                    <a href = " {{ .url }} ">
+                    <img src = "{{ .cover }}" style = "width:10em; height:13em;"/>
+                    <figcaption style = "padding:5px">{{ .title | truncate 50 }}</figcaption>
+            </a>
+            </li>
+        </figure>
                     
                     {{ end }}
 
                     
                 </ul>
      <button type="button" class="slick-next"; style="display:none"; aria-label="next";></button>
+
+ </div>
+
+ <div class="ni__sidebar">
+    <h4>New Items</h4>
+    <p>New items can be found at O'Neill Library circulation desk.</p>
  </div>
       
 <!--Second Carousel-->
@@ -65,11 +71,16 @@
 </button>
 
 <ul class="ni__carousel-glider2 active">
-    {{ range $dataJSONoneill.items }}
-
-    <li class = "ni__carousel-item" style = "width:9em; height:13em;"> 
-        <img src = "{{ .cover }}" style = "width:9em; height:13em;"/>
-        <div class = "ni__carousel-item-text">{{ .title | truncate 50 }}</div></li>
+    {{ range $dataJSONbapst.items }}
+            
+    <figure><li class = "ni__carousel-item" style = "width:10em; height:18em;"> 
+        <a href = " {{ .url }} ">
+        <img src = "{{ .cover }}" style = "width:10em; height:13em;"/>
+        <figcaption style = "padding:5px">{{ .title | truncate 50 }}</figcaption>
+</a>
+</li>
+</figure>
+   
         
         {{ end }}
 
@@ -89,10 +100,15 @@
 
 <ul class="ni__carousel-glider3 active">
     {{ range $dataJSONoneill.items }}
-
-    <li class = "ni__carousel-item" style = "width:9em; height:13em;"> 
-        <img src = "{{ .cover }}" style = "width:9em; height:13em;"/>
-        <div class = "ni__carousel-item-text">{{ .title | truncate 50 }}</div></li>
+            
+    <figure><li class = "ni__carousel-item" style = "width:10em; height:18em;"> 
+        <a href = " {{ .url }} ">
+        <img src = "{{ .cover }}" style = "width:10em; height:13em;"/>
+        <figcaption style = "padding:5px">{{ .title | truncate 50 }}</figcaption>
+</a>
+</li>
+</figure>
+   
         
         {{ end }}
 

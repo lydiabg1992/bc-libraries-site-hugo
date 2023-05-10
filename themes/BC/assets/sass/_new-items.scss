@@ -1,12 +1,23 @@
 .ni-page {
-    margin-top:2.75em;
-    margin-bottom:2.75em;
+    margin-top:2em;
+    margin-bottom:5em;
 }
 
 #ni__searchbar {
     display: block;
     float: right;
     padding-right: 1em;
+}
+
+
+.ni__sidebar {
+  float: left;
+  padding: .5em;
+  display: block;
+  width: 20%;
+  background-color: #DDE392;
+  border-radius:8px;
+
 }
 
 input {
@@ -24,18 +35,19 @@ input {
   }
 
 .ni__carousel-wrapper {
-    width: 90%;
-    margin: 0 -5px;
-    padding: 2px 6px;
+    width: 80%;
+    margin: 0px;
     text-align: left;
     display:flex;
     align-items:center;
+    height: 11em;
+    float:left;
 
 }
 
 .ni__carousel-wrapper:after {
   content: "";
-  display: table;
+  display:table;
   clear: both;
 }
 
@@ -44,7 +56,7 @@ input {
 .ni__carousel-glider2,
 .ni__carousel-glider3 {
     float: left;
-    padding: .25em;
+    padding-left: 1px;
     display: flex;
     width:80%;
    }
@@ -63,6 +75,7 @@ li.ni__carousel-item {
     -webkit-overflow-scrolling: touch;
     -ms-overflow-style: none;
     transform: translateZ(0);
+    border-radius:5px;
   }
 
 .ni__carousel-item {
@@ -73,16 +86,7 @@ li.ni__carousel-item {
   width:174px;
 }
 
-.ni__carousel-item-text {
-  
-}
 
-.ni__sidebar {
-    float: right;
-    padding: .25em;
-    display: flex;
-    width:30%;
-}
   .slick-track {
     display: flex;
   }
@@ -109,14 +113,18 @@ li.ni__carousel-item {
   justify-content:center;
   border-style: none;
   border-radius:10px;
+  background:none;
   transform:translateY(-50);
   z-index:1;
+  flex-direction:column;
   
 }
 
 .slick-next:hover, .slick-next2:hover, .slick-next3:hover,
 .slick-prev:hover, .slick-prev2:hover, .slick-prev3:hover {
   background-color:#E6E6E6;
+  align-items: start;
+
 } 
 
 
@@ -126,14 +134,17 @@ li.ni__carousel-item {
 .slick-prev2:before,
   .slick-prev3:before {
     content: "<";
-    font-size: 20px;
+    font-size: 30px;
     align-items:center;
     display:flex;
     text-align:center;
     justify-content:center;
     flex-direction:column;
     top:50%;
+    bottom:50%;
     left: 50%;
+    padding:7px;
+ 
     
 
   }
@@ -143,13 +154,15 @@ li.ni__carousel-item {
   .slick-next3:before
    {
     content: ">";
-    font-size: 20px;
+    font-size: 30px;
     align-items:center;
     display:flex;
     text-align:center;
     justify-content:center;
     flex-direction:column;
-    
-    
+    top:50%;
+    bottom:50%;
+    left:50%;
+    padding:7px;
   }
       
