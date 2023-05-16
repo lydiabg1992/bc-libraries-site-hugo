@@ -14,16 +14,25 @@
 
 {{ $dataJSONoneill := getJSON "https://library.bc.edu/new-items/json/oneill_library" }} 
 {{ $dataJSONbapst := getJSON "https://library.bc.edu/new-items/json/bapst" }}
+{{ $dataJSONerc := getJSON "https://library.bc.edu/new-items/json/erc" }}
 
 
 <body>
 
     <div id="main-body" class="container ni-page">
-        <br>
-        <h1>New Items</h1>
-    
-  
+   <br>
+        
+        <h1 style="margin-bottom:2.5rem; font-weight:200">New Items</h1>
 
+        <div class="row" id="midlevelcontainer-refresh">
+            <ol id="s-lib-bc-list" class="breadcrumb">
+                <li id="s-lib-bc-customer" class="breadcrumb-item"><a href="https://library.bc.edu">Libraries</a></li>
+                <li id="s-lib-bc-site" class="active ``breadcrumb-item"><a href="https://libguides.bc.edu/new-items/">New Items</a></li>
+           
+            </ol>
+        </div>
+    
+    
     <form id = "ni__searchbar" action="/form/submit" method="GET"> 
         <input type="text" name="text" class="search" placeholder="Search New Items...">
         <input type="submit" name="submit" class="submit" value="Search">
@@ -31,7 +40,7 @@
 
 <!--First Carousel-->
     <div class="ni__carousel-wrapper">
-        <h3>New Items at O'Neill</h3>
+        <h3 style = "font-weight:200">New Items at O'Neill</h3>
         </div>
 
 <div class="ni__carousel-wrapper">       
@@ -57,17 +66,17 @@
  </div>
 
  <div class="ni__sidebar">
-    <h4>New Items</h4>
-    <p>New items can be found at O'Neill Library circulation desk.</p>
+    <h3 style="font-weight:200">New Items</h3>
+    <p style = "font-weight:200">New items can be found at O'Neill Library circulation desk.</p>
  </div>
       
 <!--Second Carousel-->
  <div class="ni__carousel-wrapper">        
-    <h3>New Items at Bapst</h3> 
+    <h3 style = "font-weight:200">New Items at Bapst</h3> 
     </div>
 
 <div class="ni__carousel-wrapper">       
-<button type="button" class="slick-prev2" style="display:none" aria-label="previous">
+<button type="button" class="slick-prev2"; style="display:none"; aria-label="previous";>
 </button>
 
 <ul class="ni__carousel-glider2 active">
@@ -86,12 +95,12 @@
 
         
     </ul>
- <button type="button" class="slick-next3"; style="display:none"; aria-label="next";></button>
+ <button type="button" class="slick-next2"; style="display:none"; aria-label="next";></button>
 </div>
 
 <!--Third Carousel-->
 <div class="ni__carousel-wrapper">        
-    <h3>All New Items</h3> 
+    <h3 style = "font-weight:200">New Educational Resource Center Items</h3> 
     </div>
 
 <div class="ni__carousel-wrapper">       
@@ -99,7 +108,7 @@
 </button>
 
 <ul class="ni__carousel-glider3 active">
-    {{ range $dataJSONoneill.items }}
+    {{ range $dataJSONerc.items }}
             
     <figure><li class = "ni__carousel-item" style = "width:10em; height:18em;"> 
         <a href = " {{ .url }} ">
