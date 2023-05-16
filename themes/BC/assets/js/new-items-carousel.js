@@ -38,3 +38,20 @@ $('.responsive').slick({
       // instead of a settings object
     ]
   });
+
+
+  // JavaScript code
+function search_newitems() {
+	let input = document.getElementById('ni__searchbar').value
+	input=input.toLowerCase();
+	let x = document.getElementsByClassName('animals');
+	
+	for (i = 0; i < x.length; i++) {
+		if (!x[i].innerHTML.toLowerCase().includes(input)) {
+			x[i].style.display="none";
+		}
+		else {
+			x[i].style.display="list-item";				
+		}
+	}
+}
